@@ -6,7 +6,7 @@
  *   pnpm rename <scope> "My App Name"
  *
  * - Replaces all "@template/" with "@<scope>/" across the repo.
- * - Replaces "monorepo-template" with "<scope>-template".
+ * - Replaces "monorepo-template" with "<scope>".
  * - Replaces Expo display/slug/scheme defaults:
  *     "Template Expo App" / "template-expo-app" / "template-app"
  *     => provided app name + slug.
@@ -59,7 +59,7 @@ function replaceInFile(filePath) {
   const content = fs.readFileSync(filePath, "utf8");
   const replaced = content
     .replace(/@template\//g, `@${scope}/`)
-    .replace(/monorepo-template/g, `${scope}-template`)
+    .replace(/monorepo-template/g, `${scope}`)
     .replace(/Template Expo App/g, displayName)
     .replace(/template-expo-app/g, slug)
     .replace(/template-app/g, slug);
@@ -85,5 +85,5 @@ function walk(dir) {
 walk(process.cwd());
 
 console.log(
-  `Done. Scope set to @${scope}/, app name "${displayName}", slug "${slug}". Run pnpm install to refresh the lockfile.`
+  `Done. Scope set to @${scope}/, app name "${displayName}", slug "${slug}". Run pnpm install to refresh the lockfile.`,
 );

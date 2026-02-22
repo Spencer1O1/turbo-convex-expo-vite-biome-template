@@ -1,0 +1,10 @@
+packages:
+  - apps/*
+  - packages/*
+  - tooling/*
+  - convex
+
+nodeLinker: hoisted
+
+onlyBuiltDependencies:
+  - sharp

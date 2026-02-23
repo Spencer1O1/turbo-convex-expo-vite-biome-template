@@ -47,4 +47,6 @@ app-example
 
 *.pyc
 __pycache__/
-ultimatetag.code-workspace
+
+# VSCode
+*.code-workspace

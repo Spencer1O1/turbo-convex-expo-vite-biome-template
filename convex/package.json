@@ -1,14 +1,20 @@
 {
   "name": "@template/convex",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.1.0",
   "type": "module",
   "exports": {
+    ".": {
+      "types": "./_generated/api.d.ts",
+      "default": "./_generated/api.js"
+    },
     "./api": {
-      "types": "./_generated/api.ts"
+      "types": "./_generated/api.d.ts",
+      "default": "./_generated/api.js"
     },
     "./dataModel": {
-      "types": "./_generated/dataModel.ts"
+      "types": "./_generated/dataModel.d.ts",
+      "default": "./_generated/dataModel.js"
     }
   },
   "scripts": {

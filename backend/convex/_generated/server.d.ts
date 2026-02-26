@@ -4,3 +4,16 @@
 export type QueryCtx = { db: any };
 export type MutationCtx = { db: any };
 export type ActionCtx = unknown;
+
+export declare function query(def: {
+  args: any;
+  handler: (ctx: QueryCtx, args: any) => any;
+}): any;
+export declare function mutation(def: {
+  args: any;
+  handler: (ctx: MutationCtx, args: any) => any;
+}): any;
+export declare function action(def: {
+  args: any;
+  handler: (ctx: ActionCtx, args: any) => any;
+}): any;

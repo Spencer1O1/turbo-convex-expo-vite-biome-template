@@ -1,55 +1,47 @@
-# Expo + Next + Convex Turborepo Template
+# Asset Intelligence OS (Expo + Next + Convex)
+
+Hackathon-ready monorepo for building an **AI-assisted CMMS** with **NFC-based asset flows**.
+
+## What this now includes
+- **Convex backend schema** for organizations, users, assets, reports, AI inspections, and work orders.
+- **Inspection/risk engine** that transforms report notes + photo count into structured findings and recommended actions.
+- **Convex functions** for:
+  - registering assets,
+  - submitting reports,
+  - generating AI inspections,
+  - auto-updating asset risk/status,
+  - creating work orders,
+  - loading dashboard summaries.
+- **Next.js dashboard page** showing startup-track pitch framing, risk-ranked assets, and AI payload format.
+- **Expo mobile screen** reflecting the NFC scan workflow and field-friendly quick actions.
+- **Automated tests** for the inspection/risk logic using Node's built-in test runner + tsx.
 
 ## Stack
 - pnpm + Turborepo
-- Expo (Expo Router) mobile app
-- Next.js web app
+- Expo (Expo Router)
+- Next.js App Router
 - Convex backend
-- Biome formatter/linter
-- TypeScript everywhere
+- Biome
+- TypeScript end-to-end
 
-## Prerequisites
-- Node.js 18+ (corepack recommended)
-- VS Code (Biome extension) or your preferred editor
-
-## Getting Started
-1. Rename the template (see section below)
-2. Copy envs
-   ```bash
-   cp .env.example .env.local
-   ```
-   A postinstall script symlinks `.env.local` into each app/package.
-3. Enable corepack and install dependencies
-   ```bash
-   corepack enable
-   pnpm install
-   ```
-4. Set up convex
-   ```
-   pnpm dev:backend
-   ```
-5. Run dev servers
-   ```bash
-   pnpm dev
-   ```
-
-## Rename the template
-Update the package scope and Expo app name in one command (works on Windows/macOS/Linux):
+## Run locally
 ```bash
-pnpm rename myscope "My App Name"
-pnpm install # refresh lockfile after renaming
+corepack enable
+pnpm install
+pnpm dev
 ```
-This replaces all `@template/*` packages with `@myscope/*` and updates `apps/expo/app.json` name/slug/scheme.
 
-## Convex note
-The Convex backend ships with stubbed generated files so typecheck passes out of the box. When you’re ready to use Convex, run:
+Useful filtered commands:
 ```bash
-pnpm --filter @template/convex convex codegen
+pnpm --filter @template/web dev
+pnpm --filter @template/expo dev
+pnpm --filter @template/backend dev
+pnpm --filter @template/backend test
 ```
-then start the Convex dev server with `pnpm dev:backend`.
 
-## Useful scripts
-- `pnpm dev:expo`
-- `pnpm dev:web`
-- `pnpm dev:backend`
-- `pnpm lint` | `pnpm format` | `pnpm typecheck` | `pnpm build` | `pnpm test`
+## Product concept
+- Tap NFC sticker on asset.
+- Choose action: report issue, inspect, or view history.
+- AI evaluates notes/photo evidence and emits structured risk/action payload.
+- Risk score rolls up on the asset over time as more reports arrive.
+- Dashboard surfaces urgent tasks for maintainers and managers.

@@ -24,13 +24,15 @@
     "format": "biome check . --linter-enabled=false --fix",
     "lint": "biome lint . --write",
     "typecheck": "tsc --noEmit",
-    "postinstall": "node ../scripts/symlink-env.js"
+    "postinstall": "node ../scripts/symlink-env.js",
+    "test": "node --import tsx --test tests/inspection.test.ts"
   },
   "dependencies": {
     "convex": "^1.28.0"
   },
   "devDependencies": {
     "@template/typescript": "workspace:*",
+    "tsx": "^4.21.0",
     "typescript": "~5.9.3"
   }
 }
